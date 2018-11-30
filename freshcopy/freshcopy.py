@@ -1,5 +1,5 @@
 import sys
-import subprocess
+import shutil
 
 
 def parse_args(args):
@@ -34,6 +34,16 @@ def usage():
     return 'USAGE: freshcopy [--owner <name>] [--permissions <flags>] /path/to/source /path/to/target'
 
 
+copy_source_to_target(source, target):
+    pass
+
+chown_rec(target, owner):
+    pass
+
+chmod_rec(target, permissions):
+    pass
+
+
 def main():
     if len(sys.argv) < 3:
         print(usage())
@@ -42,7 +52,9 @@ def main():
         sys.exit(2)
 
     args = parse_args(sys.argv[1:])
-    print(args)
+    copy_source_to_target(args['source'], args['target'])
+    chown_rec(args['target'], args['owner'])
+    chmod_rec(args['target'], args['permissions'])    
 
     sys.exit(0)
 
