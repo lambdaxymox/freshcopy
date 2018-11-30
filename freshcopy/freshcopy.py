@@ -35,12 +35,11 @@ def usage():
 
 
 def main():
-    if len(sys.argv) != 3:
+    if len(sys.argv) < 3:
         print(usage())
 
         # An exit code of 2 is standard unix convention.
         sys.exit(2)
-
 
     args = parse_args(sys.argv[1:])
     print(args)
@@ -49,6 +48,4 @@ def main():
 
 
 if __name__ == 'main':
-    main()
-else:
     main()
